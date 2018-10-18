@@ -1,0 +1,1 @@
+# tools.wmflabs.org-addshore
