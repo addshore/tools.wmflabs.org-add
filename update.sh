@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ~/src
+
 echo "Pulling code"
 git pull
 
