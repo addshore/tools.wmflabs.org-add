@@ -1,0 +1,5 @@
+{
+    "require": {
+        "sofadesign/limonade": "dev-master#1bf0907b6e89997ebd3642476e15f2b7ce414ca0"
+    }
+}
