@@ -2,15 +2,12 @@
 
 cd ~/src
 
-echo "Pulling code"
+git checkout master
 git pull
 
-echo "Updating api libs"
-cd ~/src/public_html/api
-composer update
+composer --working-dir ~/src/public_html/api update
 
-echo "Updating public_html"
-rm -rf ~/public_html/*
-cp -R ~/src/public_html/ ~/
+cp -R ~/src/home/public_html/index.php ~/public_html/index.php
+cp -R ~/src/home/.lighttpd.conf ~/.lighttpd.conf
 
-webservice --backend kubernetes restart
+webservice restart
