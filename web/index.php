@@ -1,7 +1,5 @@
-<html>
-<head></head>
-<body>
-<h1>Work in progress</h1>
-<p>Welcome to the main router...</p>
-</body>
-</html>
+<?php
+
+# require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+
+echo "Hello";

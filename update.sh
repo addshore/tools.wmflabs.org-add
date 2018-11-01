@@ -19,6 +19,6 @@ else
     cp -R ~/src/home/public_html/index.php ~/public_html/index.php
     cp -R ~/src/home/.lighttpd.conf ~/.lighttpd.conf
 
-    webservice restart
+    webservice --backend kubernetes php7.2 restart
 
 fi

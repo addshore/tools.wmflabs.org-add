@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+
+  tool:
+    ports:
+      - 3333:2468
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/home/tools.add/src
+      - ./home/public_html:/home/tools.add/public_html
+      - ./home/.lighttpd.conf:/home/tools.add/.lighttpd.conf
