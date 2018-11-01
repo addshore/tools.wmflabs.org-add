@@ -2,7 +2,8 @@
 
 cd ~/src
 
-if [ $1 != "pulled" ]; then
+if [ $# -eq 0 ]
+then
 
     git checkout master
     git pull
