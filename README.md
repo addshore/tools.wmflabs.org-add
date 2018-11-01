@@ -1,4 +1,4 @@
-# tools.wmflabs.org-addshore
+# tools.wmflabs.org-add
 
 ###Prod
 
