@@ -4,4 +4,5 @@
 require_once __DIR__ .
 	DIRECTORY_SEPARATOR . '...' .
 	DIRECTORY_SEPARATOR . 'src' .
-	DIRECTORY_SEPARATOR . 'web';
+	DIRECTORY_SEPARATOR . 'web' .
+	DIRECTORY_SEPARATOR . 'index.php';

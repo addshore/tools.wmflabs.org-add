@@ -1,5 +1,10 @@
 # tools.wmflabs.org-addshore
 
-Clone this repo into ~/src
+**Setup**
 
-Run update.sh
+git clone https://github.com/addshore/tools.wmflabs.org-add.git ~/src
+~/src/update.sh
+
+**Update**
+
+~/src/update.sh
