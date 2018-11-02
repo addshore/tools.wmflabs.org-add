@@ -22,7 +22,7 @@ class CachedGerrit
 	 * @param string $path Example: /r/changes/1234
 	 */
 	public function getRequest( string $path ) {
-		return $this->simpleCache->do_curl( $this->gerritUrl . $path );
+		return $this->simpleCache->get( $this->gerritUrl . $path );
 	}
 
 }

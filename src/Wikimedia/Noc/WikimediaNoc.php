@@ -21,7 +21,7 @@ class WikimediaNoc {
 	 * @return array mapping dbname => version deployed
 	 */
 	public function getWikiVersions() : array {
-		$wikiVersions = $this->simpleCache->do_curl(
+		$wikiVersions = $this->simpleCache->get(
 			 $this->nocUrl . "/conf/wikiversions.json"
 		);
 		$wikiVersions = json_decode( $wikiVersions, true );

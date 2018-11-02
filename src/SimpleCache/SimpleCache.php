@@ -4,11 +4,10 @@ namespace Addtool\SimpleCache;
 
 class SimpleCache extends \Gilbitron\Util\SimpleCache {
 
-	/**
-	 * Helper function for retrieving data from url
-	 * @param $url
-	 * @return bool|mixed|string
-	 */
+	public function get( string $url ) {
+		return $this->get_data( $url, $url );
+	}
+
 	public function do_curl($url)
 	{
 		if(function_exists("curl_init")){
