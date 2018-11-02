@@ -13,8 +13,7 @@ then
 
 else
 
-    # Nothing to composer update yet
-    #composer --working-dir ~/src/public_html/api update
+    composer --working-dir ~/src/ update
 
     cp -R ~/src/home/public_html/index.php ~/public_html/index.php
     cp -R ~/src/home/.lighttpd.conf ~/.lighttpd.conf
