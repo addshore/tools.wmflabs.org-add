@@ -13,7 +13,7 @@ then
 
 else
 
-    composer --working-dir $HOME/src/ update
+    composer --working-dir=$HOME/src/ --no-dev --ignore-platform-reqs update
 
     cp -R ~/src/home/public_html/index.php ~/public_html/index.php
     cp -R ~/src/home/.lighttpd.conf ~/.lighttpd.conf
