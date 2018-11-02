@@ -9,7 +9,14 @@ class UrlChangeIdExtractorTest  extends TestCase {
 
 	public function provide() {
 		return [
-			[ 'https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/Wikibase/+/447080/', '447080' ],
+			[
+				'https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/Wikibase/+/447080/',
+				'447080'
+			],
+			[
+				'https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/Wikibase/+/447080/2/repo/includes/ParserOutput/EntityParserOutputGenerator.php',
+				'447080'
+			]
 		];
 	}
 
