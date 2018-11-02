@@ -53,10 +53,54 @@ $container['wikimedia_gerrit_changesfetcher'] = function ($c) {
 	);
 };
 
+$container['openapi-spec'] = function ( $c ) {
+	return new \Addtool\Slim\OpenApiSpec(
+		new \erasys\OpenApi\Spec\v3\Document(
+			new \erasys\OpenApi\Spec\v3\Info(
+				'Add Tool', '0.0.1', 'A collection of Apis..'
+			), [
+				'/add/api/spec' => new \erasys\OpenApi\Spec\v3\PathItem(
+					[
+						'get' => new \erasys\OpenApi\Spec\v3\Operation(
+							[
+								'200' => new \erasys\OpenApi\Spec\v3\Response( 'Successful response.' ),
+								'default' => new \erasys\OpenApi\Spec\v3\Response(
+									'Default error response.'
+								),
+							]
+						),
+					]
+				),
+				'/add/api/whereisitdeployed' => new \erasys\OpenApi\Spec\v3\PathItem(
+					[
+						'get' => new \erasys\OpenApi\Spec\v3\Operation(
+							[
+								'200' => new \erasys\OpenApi\Spec\v3\Response( 'Successful response.' ),
+								'default' => new \erasys\OpenApi\Spec\v3\Response(
+									'Default error response.'
+								),
+							]
+						),
+					]
+				),
+			]
+		)
+	);
+};
+
 $app = new Slim\App();
 
 $app->get('/helloworld/{name}', [ $container['slim_helloworld'], 'handle' ] );
-$app->get('/whereisitdeployed/{gerriturl:.*}', [ $container['slim_whereisitdeployed'], 'handle' ] );
 $app->get( '/changesfrombug/{bug}', [ $container['slim_changesfrombug'], 'handle' ] );
+
+
+$app->get(
+	'/spec',
+	[ $container['openapi-spec'], 'handle' ]
+);
+$app->get(
+	'/whereisitdeployed/{gerriturl:.*}',
+	[ $container['slim_whereisitdeployed'], 'handle' ]
+);
 
 $app->run();

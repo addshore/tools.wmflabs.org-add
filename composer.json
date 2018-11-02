@@ -2,7 +2,9 @@
     "require": {
         "slim/slim": "^3.0",
         "gilbitron/php-simplecache": "^1.4",
-        "pimple/pimple": "~3.0"
+        "pimple/pimple": "~3.0",
+        "erasys/openapi-php": "~2.0",
+        "swagger-api/swagger-ui": "~3.19"
     },
     "autoload": {
         "psr-4": {

@@ -61,7 +61,6 @@ class ChangesFetcher {
 	 */
 	public function getFromPhabricatorID( string $ticketID ) : array {
 		return $this->getRequest( '/r/changes/?q=bug:' . $ticketID );
-
 	}
 
 }

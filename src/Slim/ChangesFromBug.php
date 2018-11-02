@@ -19,8 +19,13 @@ class ChangesFromBug implements RequestHandler {
 
 		$allChanges = $this->changesFetcher->getFromPhabricatorID( $ticketId );
 
-		var_dump($allChanges);
+		$changesIds = [];
+		foreach ( $allChanges as $change ) {
+			if (array_key_exists( 'id', $change ) ) {
+				$changesIds[] = $change['id'];
+			}
+		}
 
-		$response->withJson($allChanges);
+		$response->withJson($changesIds);
 	}
 }

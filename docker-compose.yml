@@ -10,5 +10,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/home/tools.add/src
-      - ./home/public_html:/home/tools.add/public_html
+      - ./home/public_html/api:/home/tools.add/public_html/api
+      - ./home/public_html/swagger:/home/tools.add/public_html/swagger
+      - ./vendor/swagger-api/swagger-ui/dist:/home/tools.add/public_html/swagger-dist
       - ./home/.lighttpd.conf:/home/tools.add/.lighttpd.conf

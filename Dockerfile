@@ -11,4 +11,5 @@ USER tools.add
 # webservice-runner will serve data from the home dir of the running user (not project data dir)
 WORKDIR /home/tools.add
 # webservice-runner needs a type, and port specified
+# Server port 2468 is used to determine if we are running in a dev env or not
 ENTRYPOINT /usr/bin/webservice-runner --type lighttpd --port 2468
