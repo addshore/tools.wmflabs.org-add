@@ -1,4 +1,10 @@
 .idea
+*.iml
+
+.floo
+.flooignore
+
 composer.lock
 vendor
+
 cache
