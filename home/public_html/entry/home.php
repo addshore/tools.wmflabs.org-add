@@ -14,6 +14,7 @@ echo "<ul>";
 echo "<li><a href='{$baseUrl}/api' >API Base</a> (you'll get a 404)</li>";
 echo "<li><a href='{$baseUrl}/swagger/' >Swagger</a></li>";
 echo "<li><a href='{$baseUrl}/api/spec' >Open API Spec</a></li>";
+echo "<li><a href='https://github.com/addshore/tools.wmflabs.org-add' >Github code</a></li>";
 echo "</ul>";
 
 
