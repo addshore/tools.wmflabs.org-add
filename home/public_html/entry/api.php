@@ -7,58 +7,10 @@ require_once __DIR__ .
 	DIRECTORY_SEPARATOR . 'vendor' .
 	DIRECTORY_SEPARATOR . 'autoload.php';
 
-$container = new Pimple\Container();
+$services = new \Addtool\Services();
+$app = new Slim\App();
 
-$container['simplecachefactory'] = function ($c) {
-	return new \Addtool\SimpleCache\SimpleCacheFactory();
-};
-$container['simplecache-10'] = function ($c) {
-	/** @var \Addtool\SimpleCache\SimpleCacheFactory $f */
-	$f = $c['simplecachefactory'];
-	return $f->newSimpleCache( 10 );
-};
-$container['simplecache-60'] = function ($c) {
-	/** @var \Addtool\SimpleCache\SimpleCacheFactory $f */
-	$f = $c['simplecachefactory'];
-	return $f->newSimpleCache( 60 );
-};
-
-$container['slim_helloworld'] = function ($c) {
-	return new \Addtool\Slim\HelloWorld();
-};
-$container['slim_whereisitdeployed'] = function ($c) {
-	return new \Addtool\Slim\WhereIsItDeployed(
-		$c['wikimedia_gerrit_changeidextractor'],
-		$c['wikimedia_gerrit_changesfetcher'],
-		$c['wikimedia_noc']
-	);
-};
-$container['slim_changesfrombug'] = function ($c) {
-	return new \Addtool\Slim\ChangesFromBug(
-		$c['wikimedia_gerrit_changesfetcher']
-	);
-};
-$container['wikimedia_noc'] = function ($c) {
-	return new \Addtool\Wikimedia\Noc\WikimediaNoc(
-		$c['simplecache-10']
-	);
-};
-$container['wikimedia_gerrit'] = function ($c) {
-	return new \Addtool\Wikimedia\Gerrit\CachedGerrit(
-		'https://gerrit.wikimedia.org',
-		$c['simplecache-60']
-	);
-};
-$container['wikimedia_gerrit_changeidextractor'] = function ($c) {
-	return new \Addtool\Wikimedia\Gerrit\UrlChangeIdExtractor();
-};
-$container['wikimedia_gerrit_changesfetcher'] = function ($c) {
-	return new \Addtool\Wikimedia\Gerrit\ChangesFetcher(
-		$c['wikimedia_gerrit']
-	);
-};
-
-$container['openapi-spec'] = function ( $c ) {
+$getOpenApiSpecRequestHandler = function () {
 	return new \Addtool\Slim\OpenApiSpec(
 		new \erasys\OpenApi\Spec\v3\Document(
 			new \erasys\OpenApi\Spec\v3\Info(
@@ -108,19 +60,15 @@ $container['openapi-spec'] = function ( $c ) {
 	);
 };
 
-$app = new Slim\App();
-
-$app->get('/add/api/helloworld/{name}', [ $container['slim_helloworld'], 'handle' ] );
-$app->get( '/add/api/changesfrombug/{bug}', [ $container['slim_changesfrombug'], 'handle' ] );
-
-
+$app->get('/add/api/helloworld/{name}', [ $services['slim_helloworld'], 'handle' ] );
+$app->get( '/add/api/changesfrombug/{bug}', [ $services['slim_changesfrombug'], 'handle' ] );
 $app->get(
 	'/add/api/spec',
-	[ $container['openapi-spec'], 'handle' ]
+	[ $getOpenApiSpecRequestHandler(), 'handle' ]
 );
 $app->get(
 	'/add/api/gerrit.wikimedia/deployedSites/{gerriturl:.*}',
-	[ $container['slim_whereisitdeployed'], 'handle' ]
+	[ $services['slim_whereisitdeployed'], 'handle' ]
 );
 
 $app->run();
