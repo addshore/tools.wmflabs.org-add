@@ -105,16 +105,16 @@ $container['openapi-spec'] = function ( $c ) {
 
 $app = new Slim\App();
 
-$app->get('/helloworld/{name}', [ $container['slim_helloworld'], 'handle' ] );
-$app->get( '/changesfrombug/{bug}', [ $container['slim_changesfrombug'], 'handle' ] );
+$app->get('/add/api/helloworld/{name}', [ $container['slim_helloworld'], 'handle' ] );
+$app->get( '/add/api/changesfrombug/{bug}', [ $container['slim_changesfrombug'], 'handle' ] );
 
 
 $app->get(
-	'/spec',
+	'/add/api/spec',
 	[ $container['openapi-spec'], 'handle' ]
 );
 $app->get(
-	'/gerrit.wikimedia/deployedSites/{gerriturl:.*}',
+	'/add/api/gerrit.wikimedia/deployedSites/{gerriturl:.*}',
 	[ $container['slim_whereisitdeployed'], 'handle' ]
 );
 
