@@ -68,10 +68,10 @@ $container['openapi-spec'] = function ( $c ) {
 									'Default error response.'
 								),
 							]
-						),
+						)
 					]
 				),
-				'/add/api/whereisitdeployed' => new \erasys\OpenApi\Spec\v3\PathItem(
+				'/add/api/whereisitdeployed/{gerritchange}' => new \erasys\OpenApi\Spec\v3\PathItem(
 					[
 						'get' => new \erasys\OpenApi\Spec\v3\Operation(
 							[
@@ -81,6 +81,21 @@ $container['openapi-spec'] = function ( $c ) {
 								),
 							]
 						),
+						'parameters' => [
+							new \erasys\OpenApi\Spec\v3\Parameter(
+								'gerritchange',
+								'path',
+								'Gerrit change URL',
+								[
+									'schema' => new \erasys\OpenApi\Spec\v3\Schema(
+										[
+											'type' => 'string',
+										]
+									),
+									'example' => 'https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikibaseQualityConstraints/+/470058/',
+								]
+							)
+						],
 					]
 				),
 			]
