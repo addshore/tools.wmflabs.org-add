@@ -54,7 +54,9 @@ class WhereIsItDeployed implements RequestHandler {
 		$result = [
 			'gerrit' => [
 				'url' => $gerritUrl,
+				'@change-id' => 'Full change id',
 				'change-id' => $fullChangeId,
+				'@ids' => 'Merged unique gerrit ids',
 				'ids' => $uniqueMergedChangeIds,
 			],
 			'sites' => []
