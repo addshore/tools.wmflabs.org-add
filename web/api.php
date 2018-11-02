@@ -71,7 +71,7 @@ $container['openapi-spec'] = function ( $c ) {
 						)
 					]
 				),
-				'/add/api/whereisitdeployed/{gerritchange}' => new \erasys\OpenApi\Spec\v3\PathItem(
+				'/add/api/gerrit.wikimedia/deployedSites/{gerritchange}' => new \erasys\OpenApi\Spec\v3\PathItem(
 					[
 						'get' => new \erasys\OpenApi\Spec\v3\Operation(
 							[
@@ -114,7 +114,7 @@ $app->get(
 	[ $container['openapi-spec'], 'handle' ]
 );
 $app->get(
-	'/whereisitdeployed/{gerriturl:.*}',
+	'/gerrit.wikimedia/deployedSites/{gerriturl:.*}',
 	[ $container['slim_whereisitdeployed'], 'handle' ]
 );
 
