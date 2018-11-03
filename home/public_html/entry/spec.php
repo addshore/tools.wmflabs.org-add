@@ -19,7 +19,9 @@ return new \erasys\OpenApi\Spec\v3\Document(
 						'default' => new \erasys\OpenApi\Spec\v3\Response(
 							'Default error response.'
 						),
-					]
+					],
+					null,
+					'Get the Open API spec.'
 				),
 			]
 		),
@@ -31,6 +33,11 @@ return new \erasys\OpenApi\Spec\v3\Document(
 						'default' => new \erasys\OpenApi\Spec\v3\Response(
 							'Default error response.'
 						),
+					],
+					null,
+					'Get a list of Wikimedia sites that the given Gerrit change is deployed on.',
+					[
+						'description' => "Sites are provided as a list of Wikimedia site Ids.\n\nDeployed does not necessarily mean that the code is enabled."
 					]
 				),
 				'parameters' => [
