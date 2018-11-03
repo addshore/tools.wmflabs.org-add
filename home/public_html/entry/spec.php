@@ -21,7 +21,12 @@ return new \erasys\OpenApi\Spec\v3\Document(
 						),
 					],
 					null,
-					'Get the Open API spec.'
+					'Get the Open API spec.',
+					[
+						'tags' => [
+							'local'
+						]
+					]
 				),
 			]
 		),
@@ -37,7 +42,10 @@ return new \erasys\OpenApi\Spec\v3\Document(
 					null,
 					'Get a list of Wikimedia sites that the given Gerrit change is deployed on.',
 					[
-						'description' => "Sites are provided as a list of Wikimedia site Ids.\n\nDeployed does not necessarily mean that the code is enabled."
+						'description' => "Sites are provided as a list of Wikimedia site Ids.\n\nDeployed does not necessarily mean that the code is enabled.",
+						'tags' => [
+							'gerrit.wikimedia'
+						],
 					]
 				),
 				'parameters' => [
