@@ -11,12 +11,19 @@ $services = new \Addtool\Services();
 $app = new Slim\App();
 
 $getOpenApiSpecRequestHandler = function () {
+	// 2468 indicates a dev env (with docker)
+	if( $_SERVER['SERVER_PORT'] == 2468 ) {
+		$baseUrl = "http://localhost:3333/add/api/";
+	} else {
+		$baseUrl = "https://tools.wmflabs.org/add/api/";
+	}
 	return new \Addtool\Slim\OpenApiSpec(
 		new \erasys\OpenApi\Spec\v3\Document(
 			new \erasys\OpenApi\Spec\v3\Info(
 				'Add Tool', '0.0.1', 'A collection of Apis..'
-			), [
-				'/add/api/spec' => new \erasys\OpenApi\Spec\v3\PathItem(
+			),
+			[
+				'/spec' => new \erasys\OpenApi\Spec\v3\PathItem(
 					[
 						'get' => new \erasys\OpenApi\Spec\v3\Operation(
 							[
@@ -28,7 +35,7 @@ $getOpenApiSpecRequestHandler = function () {
 						)
 					]
 				),
-				'/add/api/gerrit.wikimedia/deployedSites/{gerritchange}' => new \erasys\OpenApi\Spec\v3\PathItem(
+				'/gerrit.wikimedia/deployedSites/{gerritchange}' => new \erasys\OpenApi\Spec\v3\PathItem(
 					[
 						'get' => new \erasys\OpenApi\Spec\v3\Operation(
 							[
@@ -55,6 +62,14 @@ $getOpenApiSpecRequestHandler = function () {
 						],
 					]
 				),
+			],
+			'3.0.1',
+			[
+				'servers' => [
+					new \erasys\OpenApi\Spec\v3\Server(
+						$baseUrl
+					)
+				]
 			]
 		)
 	);
