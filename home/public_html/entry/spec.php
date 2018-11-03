@@ -9,7 +9,9 @@ if ( $_SERVER['SERVER_PORT'] == 2468 ) {
 
 return new \erasys\OpenApi\Spec\v3\Document(
 	new \erasys\OpenApi\Spec\v3\Info(
-		'Add Tool', '0.0.1', 'A collection of Apis..'
+		'Add APIs',
+		'0.0.1',
+		'A collection of APIs developed and maintained by Addshore.'
 	), [
 		'/spec' => new \erasys\OpenApi\Spec\v3\PathItem(
 			[
