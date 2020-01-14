@@ -1,15 +1,17 @@
 <?php
 
-namespace Addtool\Wikimedia\Gerrit;
+namespace Addtool\Wikimedia\Gerrit\Services;
 
-class ChangesFetcher {
+use Addtool\CachedSite;
 
-	private $gerrit;
+class Changes {
+
+	private $site;
 
 	public function __construct(
-		Gerrit $gerrit
+		CachedSite $site
 	) {
-		$this->gerrit = $gerrit;
+		$this->site = $site;
 	}
 
 	/**
@@ -27,7 +29,7 @@ class ChangesFetcher {
 
 	private function getRequest( string $path ) : array {
 		return $this->getArrayFromResponse(
-			$this->gerrit->getRequest( $path )
+			$this->site->getRequest( $path )
 		);
 	}
 

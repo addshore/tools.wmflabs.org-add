@@ -2,7 +2,7 @@
 
 namespace Addtool\Tests\Wikimedia\Gerrit;
 
-use Addtool\Wikimedia\Gerrit\UrlChangeIdExtractor;
+use Addtool\Wikimedia\Gerrit\Utility\UrlChangeIdExtractor;
 use PHPUnit\Framework\TestCase;
 
 class UrlChangeIdExtractorTest  extends TestCase {

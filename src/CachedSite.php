@@ -1,14 +1,18 @@
 <?php
 
-namespace Addtool\SimpleCache;
+namespace Addtool;
 
-use Addtool\Interfaces\RequestableSite;
+use Addtool\SimpleCache\SimpleCache;
 
-class CachedSite implements RequestableSite {
+class CachedSite {
 
 	private $baseUrl;
 	protected $simpleCache;
 
+	/**
+	 * @param string $baseUrl Example: https://gerrit.wikimedia.org
+	 * @param SimpleCache $simpleCache
+	 */
 	public function __construct(
 		string $baseUrl,
 		SimpleCache $simpleCache
