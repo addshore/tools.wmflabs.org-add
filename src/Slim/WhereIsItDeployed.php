@@ -4,7 +4,7 @@ namespace Addtool\Slim;
 
 use Addtool\Wikimedia\Gerrit\ChangesFetcher;
 use Addtool\Wikimedia\Gerrit\UrlChangeIdExtractor;
-use Addtool\Wikimedia\Noc\WikimediaNoc;
+use Addtool\Wikimedia\Noc\Noc;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -17,7 +17,7 @@ class WhereIsItDeployed implements RequestHandler {
 	public function __construct(
 		UrlChangeIdExtractor $changeIdExtractor,
 		ChangesFetcher $changesFetcher,
-		WikimediaNoc $noc
+		Noc $noc
 	) {
 		$this->changeIdExtractor = $changeIdExtractor;
 		$this->changesFetcher = $changesFetcher;

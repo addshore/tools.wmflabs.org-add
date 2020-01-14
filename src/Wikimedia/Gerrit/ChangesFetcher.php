@@ -7,7 +7,7 @@ class ChangesFetcher {
 	private $gerrit;
 
 	public function __construct(
-		CachedGerrit $gerrit
+		Gerrit $gerrit
 	) {
 		$this->gerrit = $gerrit;
 	}

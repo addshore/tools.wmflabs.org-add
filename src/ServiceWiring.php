@@ -33,12 +33,12 @@ return [
 		);
 	},
 	'wikimedia_noc' => function ( $c ) {
-		return new \Addtool\Wikimedia\Noc\WikimediaNoc(
+		return new \Addtool\Wikimedia\Noc\Noc(
 			$c['simplecache-10']
 		);
 	},
 	'wikimedia_gerrit' => function ( $c ) {
-		return new \Addtool\Wikimedia\Gerrit\CachedGerrit(
+		return new \Addtool\Wikimedia\Gerrit\Gerrit(
 			'https://gerrit.wikimedia.org',
 			$c['simplecache-60']
 		);
