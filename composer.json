@@ -4,7 +4,8 @@
 		"gilbitron/php-simplecache": "^1.4",
 		"pimple/pimple": "~3.0",
 		"erasys/openapi-php": "~2.0",
-		"swagger-api/swagger-ui": "~3.19"
+		"swagger-api/swagger-ui": "~3.19",
+		"ext-json": "*"
 	},
 	"autoload": {
 		"psr-4": {
