@@ -13,12 +13,18 @@ Update:
 ~/src/update.sh
 ```
 
+Access the site:
+https://tools.wmflabs.org/add
+
 ###Dev
 
 Run:
 ```
 docker-compose up --build
 ```
+
+Access the site:
+http://localhost:3333/add
 
 Get a shell:
 ```
