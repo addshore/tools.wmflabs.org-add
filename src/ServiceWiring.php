@@ -39,7 +39,6 @@ return [
 	},
 	'wikimedia_gerrit' => function ( $c ) {
 		return new \Addtool\Wikimedia\Gerrit\Gerrit(
-			'https://gerrit.wikimedia.org',
 			$c['simplecache-60']
 		);
 	},

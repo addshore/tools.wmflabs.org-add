@@ -2,27 +2,12 @@
 
 namespace Addtool\Wikimedia\Gerrit;
 
-use Addtool\Interfaces\RequestableSite;
+use Addtool\SimpleCache\CachedSite;
 use Addtool\SimpleCache\SimpleCache;
 
-class Gerrit implements RequestableSite {
+class Gerrit extends CachedSite {
 
-	private $baseUrl;
-	private $simpleCache;
-
-	public function __construct(
-		string $baseUrl, SimpleCache $simpleCache
-	) {
-		$this->baseUrl = $baseUrl;
-		$this->simpleCache = $simpleCache;
+	public function __construct( SimpleCache $simpleCache ) {
+		parent::__construct( "https://gerrit.wikimedia.org", $simpleCache );
 	}
-
-	/**
-	 * @param string $path Example: /r/changes/1234
-	 * @return bool|false|string
-	 */
-	public function getRequest( string $path ) {
-		return $this->simpleCache->get( $this->baseUrl . $path );
-	}
-
 }
