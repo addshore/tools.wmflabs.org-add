@@ -1,4 +1,7 @@
 # Possible images are listed at https://tools.wmflabs.org/docker-registry/
+# This Dockerfile is only actually used for local development.
+# Production will use the image specified in the update.sh script
+# which should be kept in sync with the below.
 FROM docker-registry.tools.wmflabs.org/toollabs-php73-web:latest
 
 # webservice-runner needs this file to exist and say we are running in tools
