@@ -19,6 +19,6 @@ else
     cp -R -T ~/src/vendor/swagger-api/swagger-ui/dist ~/public_html/swagger-dist
     cp -R ~/src/home/.lighttpd.conf ~/.lighttpd.conf
 
-    webservice --backend kubernetes php7.2 restart
+    webservice --backend kubernetes php7.3 restart
 
 fi

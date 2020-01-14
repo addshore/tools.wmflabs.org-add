@@ -1,4 +1,5 @@
-FROM docker-registry.tools.wmflabs.org/toollabs-php72-web:latest
+# Possible images are listed at https://tools.wmflabs.org/docker-registry/
+FROM docker-registry.tools.wmflabs.org/toollabs-php73-web:latest
 
 # webservice-runner needs this file to exist and say we are running in tools
 RUN echo 'tools' > /etc/wmcs-project
